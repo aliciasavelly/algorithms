@@ -3,9 +3,9 @@ var findMedianSortedArrays = function(nums1, nums2) {
   let midIdx;
   let count = 0;
   let result = 0;
+  let current = 0;
   let i = 0;
   let j = 0;
-  let current = 0;
 
   if (totalEls % 2 === 0) {
     midIdx = [totalEls / 2 - 1, totalEls / 2 ];
@@ -17,15 +17,9 @@ var findMedianSortedArrays = function(nums1, nums2) {
     if (nums1[i] === undefined || nums2[j] < nums1[i]) {
       current = nums2[j];
       j++;
-    } else if (nums2[j] === undefined) {
+    } else if (nums2[j] === undefined || nums1[i] <= nums2[j]) {
       current = nums1[i];
       i++
-    } else if (nums1[i] <= nums2[j]) {
-      current = nums1[i];
-      i++;
-    } else if (nums2[j] < nums1[i]) {
-      current = nums2[j];
-      j++;
     }
 
     if (count == midIdx[0]) {
@@ -35,8 +29,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
         result += current;
       }
     } else if (midIdx.length == 2 && count == midIdx[midIdx.length - 1]) {
-      result += current;
-      return result / 2;
+      return (result + current) / 2;
     }
 
     count++;
