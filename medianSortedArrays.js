@@ -1,4 +1,4 @@
-var findMedianSortedArrays = function(nums1, nums2) {
+function findMedianSortedArrays(nums1, nums2) {
   let totalEls = nums1.length + nums2.length;
   let midIdx;
   let count = 0;
