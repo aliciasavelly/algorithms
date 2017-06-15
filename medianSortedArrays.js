@@ -7,33 +7,31 @@ var findMedianSortedArrays = function(nums1, nums2) {
   let i = 0;
   let j = 0;
 
-  if (totalEls % 2 === 0) {
-    midIdx = [totalEls / 2 - 1, totalEls / 2 ];
-  } else {
-    midIdx = [Math.floor(totalEls / 2)];
-  }
+  midIdx = (totalEls % 2 === 0 ? [totalEls / 2 - 1, totalEls / 2 ] :
+                                 [Math.floor(totalEls / 2)])
 
-  while (count <= midIdx[midIdx.length - 1]) {
-    if (nums1[i] === undefined || nums2[j] < nums1[i]) {
+  while (count <= midIdx[0]) {
+    if (!nums1[i] || nums2[j] < nums1[i]) {
       current = nums2[j];
       j++;
-    } else if (nums2[j] === undefined || nums1[i] <= nums2[j]) {
+    } else if (!nums2[j] || nums1[i] <= nums2[j]) {
       current = nums1[i];
       i++
     }
 
-    if (count == midIdx[0]) {
-      if (midIdx.length == 1) {
-        return current;
-      } else {
-        result += current;
-      }
-    } else if (midIdx.length == 2 && count == midIdx[midIdx.length - 1]) {
-      return (result + current) / 2;
-    }
-
     count++;
   }
+
+  if (midIdx.length == 2) {
+    if (nums1[i] && nums2[i]) {
+      result += Math.min(nums1[i], nums2[j]);
+    } else {
+      result += (nums1[i] ? nums1[i] : nums2[j]);
+    }
+    return (result + current) / 2;
+  }
+
+  return current;
 };
 
 console.log(findMedianSortedArrays([1, 3], [2]) === 2);
