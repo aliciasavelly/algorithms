@@ -33,16 +33,49 @@ def used_in_box(arr, row, col, num):
     return False
 
 def check_location_is_safe(arr, row, col, num):
-    return not used_in_row(arr, row, num) and
-           not used_in_col(arr, col, num) and
-           not used_in_box(arr, row - row % 3, col - col % 3, num)
+    return not used_in_row(arr, row, num) and not used_in_col(arr, col, num) and not used_in_box(arr, row - row % 3, col - col % 3, num)
 
-print print_grid([[3,0,6,5,0,8,4,0,0],
-                  [5,2,0,0,0,0,0,0,0],
-                  [0,8,7,0,0,0,0,3,1],
-                  [0,0,3,0,1,0,0,8,0],
-                  [9,0,0,8,6,3,0,0,5],
-                  [0,5,0,0,9,0,6,0,0],
-                  [1,3,0,0,0,0,2,5,0],
-                  [0,0,0,0,0,0,0,7,4],
-                  [0,0,5,2,0,6,3,0,0]])
+def solve_sudoku(arr):
+    l = [0, 0]
+
+    if (not find_empty_location(arr, l)):
+        return True
+
+    row = l[0]
+    col = l[1]
+
+    for num in range(1, 10):
+        if (check_location_is_safe(arr, row, col, num)):
+            arr[row][col] = num
+
+            if (solve_sudoku(arr)):
+                return True
+
+            arr[row][col] = 0
+
+    return False
+
+grid=[[3,0,6,5,0,8,4,0,0],
+      [5,2,0,0,0,0,0,0,0],
+      [0,8,7,0,0,0,0,3,1],
+      [0,0,3,0,1,0,0,8,0],
+      [9,0,0,8,6,3,0,0,5],
+      [0,5,0,0,9,0,6,0,0],
+      [1,3,0,0,0,0,2,5,0],
+      [0,0,0,0,0,0,0,7,4],
+      [0,0,5,2,0,6,3,0,0]]
+
+if (solve_sudoku(grid)):
+    print_grid(grid)
+else:
+    print "No solution exists"
+
+# print print_grid([[3,0,6,5,0,8,4,0,0],
+#                   [5,2,0,0,0,0,0,0,0],
+#                   [0,8,7,0,0,0,0,3,1],
+#                   [0,0,3,0,1,0,0,8,0],
+#                   [9,0,0,8,6,3,0,0,5],
+#                   [0,5,0,0,9,0,6,0,0],
+#                   [1,3,0,0,0,0,2,5,0],
+#                   [0,0,0,0,0,0,0,7,4],
+#                   [0,0,5,2,0,6,3,0,0]])
