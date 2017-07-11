@@ -32,6 +32,11 @@ def used_in_box(arr, row, col, num):
                 return True
     return False
 
+def check_location_is_safe(arr, row, col, num):
+    return not used_in_row(arr, row, num) and
+           not used_in_col(arr, col, num) and
+           not used_in_box(arr, row - row % 3, col - col % 3, num)
+
 print print_grid([[3,0,6,5,0,8,4,0,0],
                   [5,2,0,0,0,0,0,0,0],
                   [0,8,7,0,0,0,0,3,1],
