@@ -25,6 +25,13 @@ def used_in_col(arr, col, num):
             return True
     return False
 
+def used_in_box(arr, row, col, num):
+    for i in range(3):
+        for j in range(3):
+            if (arr[i + row][j + col] == num):
+                return True
+    return False
+
 print print_grid([[3,0,6,5,0,8,4,0,0],
                   [5,2,0,0,0,0,0,0,0],
                   [0,8,7,0,0,0,0,3,1],
