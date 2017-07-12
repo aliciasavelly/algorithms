@@ -9,12 +9,17 @@ end
 def check_rows(board)
   board.each do |row|
     total = 0
+    rowArr = []
     row.each do |col|
       return false if col == 0
       return false if col > 9 || col < 1
       total += col
+      rowArr << col
     end
 
+    (1..9).each do |val|
+      return false unless rowArr.include?(val)
+    end
     return false if total != 45
   end
 
@@ -24,13 +29,18 @@ end
 def check_cols(board)
   (0..8).each do |col|
     total = 0
+    colArr = []
     (0..8).each do |row|
       val = board[row][col]
       return false if val == 0
       return false if val > 9 || val < 0
       total += val
+      colArr << val
     end
 
+    (1..9).each do |val|
+      return false unless colArr.include?(val)
+    end
     return false if total != 45
   end
 
@@ -41,16 +51,21 @@ def check_squares(board)
   pos = [0, 0]
   while pos[0] < 9 && pos[1] < 9
     total = 0
+    squareArr = []
     (0..2).each do |row|
       (0..2).each do |col|
         val = board[row + pos[0]][col + pos[1]]
         return false if val == 0
         return false if val > 9 || val < 0
         total += val
+        squareArr << val
       end
     end
 
     return false if total != 45
+    (1..9).each do |val|
+      return false unless squareArr.include?(val)
+    end
 
     if pos[0] == 6 and pos[1] == 6
       pos = [9, 9]
