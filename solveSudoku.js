@@ -59,15 +59,14 @@ function checkLocationIsSafe(arr, row, col, num) {
 }
 
 function solveSudoku(arr) {
-  l = [0, 0];
-  // console.log(arr);
+  let l = [0, 0];
 
   if (!findEmptyLocation(arr, l)) {
     return true;
   }
 
-  row = l[0];
-  col = l[1];
+  let row = l[0];
+  let col = l[1];
 
   for (let k = 1; k < 10; k++) {
     if (checkLocationIsSafe(arr, row, col, k)) {
@@ -95,11 +94,7 @@ let grid = [[3,0,6,5,0,8,4,0,0],
             [0,0,5,2,0,6,3,0,0]];
 
 if (solveSudoku(grid) == true) {
-  console.log("true");
   console.log(printGrid(grid));
 } else {
-  console.log("false");
-  console.log(solveSudoku(grid));
-  console.log(printGrid(grid));
   console.log("No solution exists.");
 }
