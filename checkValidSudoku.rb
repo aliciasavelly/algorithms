@@ -1,9 +1,23 @@
 def validSolution(board)
   return false unless check_rows(board)
-  return false unless check_cols(board)
+  newBoard = transposeCols(board)
+  return false unless check_rows(newBoard)
   return false unless check_squares(board)
 
   true
+end
+
+def transposeCols(board)
+  result = []
+
+  (0..8).each do |col|
+    result << []
+    (0..8).each do |row|
+      result[col] << board[row][col]
+    end
+  end
+
+  result
 end
 
 def check_rows(board)
@@ -19,27 +33,6 @@ def check_rows(board)
 
     (1..9).each do |val|
       return false unless rowArr.include?(val)
-    end
-    return false if total != 45
-  end
-
-  true
-end
-
-def check_cols(board)
-  (0..8).each do |col|
-    total = 0
-    colArr = []
-    (0..8).each do |row|
-      val = board[row][col]
-      return false if val == 0
-      return false if val > 9 || val < 0
-      total += val
-      colArr << val
-    end
-
-    (1..9).each do |val|
-      return false unless colArr.include?(val)
     end
     return false if total != 45
   end
