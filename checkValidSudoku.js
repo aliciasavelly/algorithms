@@ -2,6 +2,15 @@ function validSolution(board) {
   if (!validRows(board)) {
     return false;
   }
+
+  let newBoard = transposeCols(board);
+  if (!validRows(newBoard)) {
+    return false;
+  }
+  
+  if (!validSquares(board)) {
+    return false;
+  }
 }
 
 function validRows(board) {
@@ -28,4 +37,17 @@ function validRows(board) {
   });
 
   return true;
+}
+
+function transposeCols(board) {
+  let result = [];
+
+  for (let col = 0; col < 9; col++) {
+    result.push([]);
+    for (let row = 0; row < 9; row++) {
+      result[col].push(board[row][col]);
+    }
+  }
+
+  return result;
 }
