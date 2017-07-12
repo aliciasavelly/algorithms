@@ -1,8 +1,8 @@
 function printGrid(arr) {
-  for (let q = 0; q < 9; q++) {
+  for (let i = 0; i < 9; i++) {
     let row = [];
-    for (let p = 0; p < 9; p++) {
-      row.push(arr[q][p]);
+    for (let j = 0; j < 9; j++) {
+      row.push(arr[i][j]);
     }
     console.log(String(row).replace(/,/g, " "));
   }
@@ -33,8 +33,8 @@ function usedInRow(arr, row, num) {
 }
 
 function usedInCol(arr, col, num) {
-  for (let j = 0; j < 9; j++) {
-    if (arr[j][col] == num) {
+  for (let i = 0; i < 9; i++) {
+    if (arr[i][col] == num) {
       return true;
     }
   }
@@ -43,9 +43,9 @@ function usedInCol(arr, col, num) {
 }
 
 function usedInSquare(arr, row, col, num) {
-  for (let l = 0; l < 3; l++) {
-    for (let m = 0; m < 3; m++) {
-      if (arr[row + l][col + m] == num) {
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      if (arr[row + i][col + j] == num) {
         return true;
       }
     }
@@ -68,9 +68,9 @@ function solveSudoku(arr) {
   let row = l[0];
   let col = l[1];
 
-  for (let k = 1; k < 10; k++) {
-    if (checkLocationIsSafe(arr, row, col, k)) {
-      arr[row][col] = k;
+  for (let i = 1; i < 10; i++) {
+    if (checkLocationIsSafe(arr, row, col, i)) {
+      arr[row][col] = i;
 
       if (solveSudoku(arr)) {
         return true;
