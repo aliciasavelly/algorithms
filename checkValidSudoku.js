@@ -4,11 +4,7 @@ function validSolution(board) {
   }
 
   let newBoard = transposeCols(board);
-  if (!validRows(newBoard)) {
-    return false;
-  }
-
-  if (!validSquares(board)) {
+  if (!validRows(newBoard) || !validSquares(board)) {
     return false;
   }
 
