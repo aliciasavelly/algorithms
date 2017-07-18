@@ -13,7 +13,6 @@ end
 
 def merge(arr1, arr2, &callback)
   result = []
-  p arr1 + arr2
 
   while arr1.length > 0 && arr2.length > 0
     if (callback.call(arr1[0], arr2[0]) < 0)
@@ -27,3 +26,22 @@ def merge(arr1, arr2, &callback)
 end
 
 p mergeSort([7, 2, 1, 4, 5, 6, 2, 7, 19, 9, 3])
+
+class Array
+  def merge_sort(&prc)
+    return self if self.length < 2
+    prc ||= Proc.new { |x, y| x <=> y }
+
+    mid = self.length
+    left = self.slice(0, mid)
+    right = self.slice(mid, self.length)
+    leftSorted = left.merge_sort(&prc)
+    rightSorted = right.merge_sort(&prc)
+
+    Array.merge(left, right, &prc)
+  end
+
+  def self.merge(arr1, arr2, &prc)
+
+  end
+end
