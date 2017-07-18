@@ -31,12 +31,12 @@ p mergeSort([7, 2, 1, 4, 5, 6, 2, 7, 19, 9, 3])
 
 class Array
   def merge_sort(&prc)
-    return self if self.length < 2
+    return self if length < 2
     prc ||= Proc.new { |x, y| x <=> y }
 
-    mid = self.length / 2
-    left = self.take(mid).merge_sort(&prc)
-    right = self.drop(mid).merge_sort(&prc)
+    mid = length / 2
+    left = take(mid).merge_sort(&prc)
+    right = drop(mid).merge_sort(&prc)
 
     Array.merge(left, right, &prc)
   end
