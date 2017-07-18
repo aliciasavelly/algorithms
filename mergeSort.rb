@@ -13,6 +13,7 @@ end
 
 def merge(arr1, arr2, &callback)
   result = []
+  p arr1 + arr2
 
   while arr1.length > 0 && arr2.length > 0
     if (callback.call(arr1[0], arr2[0]) < 0)
