@@ -56,6 +56,6 @@ print flatten(dictionary) == {'a': 1, 'e.h.i': 7, 'c': 3, 'b': 2, 'd': 4, 'e.f':
 print flatten(dictionary2)
 print flatten(dictionary2) == {'a': 1, 'e.h.i': 7, 'c': 3, 'b': 2, 'd': 4, 'e.f': 5, 'e.g': 6, '9': 10, 'e.h.j.k': 8}
 
-print flatten()
-print flatten({})
-print flatten([1, 2, 3, 4])
+print flatten() == -1
+print flatten({}) == -1
+print flatten([1, 2, 3, 4]) == -1
