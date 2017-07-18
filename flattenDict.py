@@ -1,5 +1,5 @@
 def flatten(dictionary = -1):
-    if dictionary == -1 or dictionary == {}:
+    if dictionary == -1 or dictionary == {} or type(dictionary) != dict:
         return -1
 
     output = {}
@@ -58,3 +58,4 @@ print flatten(dictionary2) == {'a': 1, 'e.h.i': 7, 'c': 3, 'b': 2, 'd': 4, 'e.f'
 
 print flatten()
 print flatten({})
+print flatten([1, 2, 3, 4])
