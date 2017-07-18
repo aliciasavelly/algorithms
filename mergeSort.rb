@@ -45,11 +45,7 @@ class Array
     result = []
 
     while arr1.length > 0 && arr2.length > 0
-      if prc.call(arr1[0], arr2[0]) < 0
-        result << arr1.shift
-      else
-        result << arr2.shift
-      end
+      result << (prc.call(arr1[0], arr2[0]) < 0 ? arr1.shift : arr2.shift)
     end
 
     result + arr1 + arr2
