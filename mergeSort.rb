@@ -35,12 +35,10 @@ class Array
     prc ||= Proc.new { |x, y| x <=> y }
 
     mid = self.length / 2
-    left = self.slice(0, mid)
-    right = self.slice(mid, self.length)
-    leftSorted = left.merge_sort(&prc)
-    rightSorted = right.merge_sort(&prc)
+    left = self.take(mid).merge_sort(&prc)
+    right = self.drop(mid).merge_sort(&prc)
 
-    Array.merge(leftSorted, rightSorted, &prc)
+    Array.merge(left, right, &prc)
   end
 
   def self.merge(arr1, arr2, &prc)
