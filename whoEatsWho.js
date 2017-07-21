@@ -20,11 +20,14 @@ var whoEatsWho = function(zoo) {
     let prev = dupZoo[i - 1];
     let current = dupZoo[i];
     let next = dupZoo[i + 1];
+
     if (animalFood[current]) {
+
       if (prev && animalFood[current].has(prev)) {
         result.push(`${current} eats ${prev}`);
         dupZoo.splice(i - 1, 1);
         i = -1;
+
       } else if (next && animalFood[current].has(next)) {
         result.push(current + " eats " + next);
         dupZoo.splice(i + 1, 1);
