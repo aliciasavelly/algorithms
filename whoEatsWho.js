@@ -17,13 +17,16 @@ var whoEatsWho = function(zoo) {
   let result = [];
 
   for (let i = 0; i < dupZoo.length; i++) {
-    if (animalFood[dupZoo[i]]) {
-      if (dupZoo[i - 1] && animalFood[dupZoo[i]].has(dupZoo[i - 1])) {
-        result.push(dupZoo[i] + " eats " + dupZoo[i - 1]);
+    let prev = dupZoo[i - 1];
+    let current = dupZoo[i];
+    let next = dupZoo[i + 1];
+    if (animalFood[current]) {
+      if (prev && animalFood[current].has(prev)) {
+        result.push(`${current} eats ${prev}`);
         dupZoo.splice(i - 1, 1);
         i = -1;
-      } else if (dupZoo[i + 1] && animalFood[dupZoo[i]].has(dupZoo[i + 1])) {
-        result.push(dupZoo[i] + " eats " + dupZoo[i + 1]);
+      } else if (next && animalFood[current].has(next)) {
+        result.push(current + " eats " + next);
         dupZoo.splice(i + 1, 1);
         i = -1;
       }
