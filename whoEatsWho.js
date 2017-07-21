@@ -17,28 +17,20 @@ var whoEatsWho = function(zoo) {
   let result = [];
 
   for (let i = 0; i < dupZoo.length; i++) {
-//     console.log(dupZoo);
-//     console.log(i);
     if (animalFood[dupZoo[i]]) {
       if (dupZoo[i - 1] && animalFood[dupZoo[i]].has(dupZoo[i - 1])) {
         result.push(dupZoo[i] + " eats " + dupZoo[i - 1]);
-//         console.log(result);
         dupZoo.splice(i - 1, 1);
         i = -1;
       } else if (dupZoo[i + 1] && animalFood[dupZoo[i]].has(dupZoo[i + 1])) {
         result.push(dupZoo[i] + " eats " + dupZoo[i + 1]);
-//         console.log(result);
         dupZoo.splice(i + 1, 1);
         i = -1;
       }
     }
   }
 
-//   console.log(result);
-//   console.log(dupZoo.join());
   result.push(dupZoo.join());
   result.unshift(zoo);
-  console.log(result);
-//   console.log(result.unshift(zoo));
   return result;
 }
