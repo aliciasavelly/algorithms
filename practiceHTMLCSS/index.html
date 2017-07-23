@@ -1,15 +1,18 @@
 <script>
   function registerHandlers() {
-    var as = document.getElementsByTagName('A');
-    for (var i = 0; i < as.length; i++) {
-      as[i].onclick = function() {
-        alert(i);
-        return false;
-      }
+    var as = document.getElementsByTagName('a');
+    for (i = 0; i < as.length; i++) {
+        as[i].onclick = (function(index) {
+          return function() {
+            alert(index);
+            return false;
+          }
+        }(i));
     }
   }
   window.onload = registerHandlers;
 </script>
+
 <body>
   In my life, I used the following web search engines:<br/>
   <a href="//www.yahoo.com">Yahoo!</a><br/>
