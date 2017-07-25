@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title></title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.red-box').mouseover(function() {
+          $(this).toggleClass('toggled');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="red-box"></div>
+  </body>
+</html>

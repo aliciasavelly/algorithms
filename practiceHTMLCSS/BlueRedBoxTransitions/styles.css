@@ -1,0 +1,14 @@
+.red-box {
+  width: 200px;
+  height: 200px;
+  background: blue;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: background 4s, left 4s;
+}
+
+.toggled {
+  background: red;
+  left: calc(100% - 200px);
+}
