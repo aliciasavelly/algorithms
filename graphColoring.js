@@ -92,8 +92,7 @@ function findColors(graph) {
     max = findMaxDegree(node, max);
   });
 
-  let numColors = max + 1;
-  for (let i = 0; i < numColors; i++) {
+  for (let i = 0; i <= max; i++) {
     colors.add(allColors[i]);
   }
 
