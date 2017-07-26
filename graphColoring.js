@@ -68,21 +68,9 @@ o.neighbors.add(n);
 let graph2 = [d, e, f, g, h, i, j, k, l, m, n, o];
 
 function colorGraph(graph) {
-  let allColors = ["red", "green", "blue", "yellow", "purple", "orange", "brown", "pink"];
-  let max = 0;
-  let colors = new Set();
-
-  graph.forEach(node => {
-    max = findMaxDegree(node, max);
-  });
-
-  let numColors = max + 1;
-
-  for (let i = 0; i < numColors; i++) {
-    colors.add(allColors[i]);
-  }
-
+  let colors = findColors(graph);
   let coloredNodes = [];
+
   graph.forEach(node => {
     coloredNodes.push(node.label);
     colorNodes(node, coloredNodes, colors);
@@ -93,6 +81,23 @@ function colorGraph(graph) {
 
 function colorNodes(node, coloredNodes, colors) {
 
+}
+
+function findColors(graph) {
+  let allColors = ["red", "green", "blue", "yellow", "purple", "orange", "brown", "pink"];
+  let max = 0;
+  let colors = new Set();
+
+  graph.forEach(node => {
+    max = findMaxDegree(node, max);
+  });
+
+  let numColors = max + 1;
+  for (let i = 0; i < numColors; i++) {
+    colors.add(allColors[i]);
+  }
+
+  return colors;
 }
 
 function findMaxDegree(startNode, max) {
