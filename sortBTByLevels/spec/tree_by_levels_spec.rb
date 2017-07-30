@@ -36,4 +36,15 @@ describe "#tree_by_levels" do
 
     expect(tree_by_levels(root)).to eq([1, 8, 3, 4, 5, 7])
   end
+
+  it "should return the correct array for a short tree" do
+    root = TreeNode.new(1)
+    expect(tree_by_levels(root)).to eq([1])
+  end
+
+  it "should work properly with a tree of two levels" do
+    root = TreeNode.new(9)
+    root.left = TreeNode.new(6)
+    expect(tree_by_levels(root)).to eq([9, 6])
+  end
 end

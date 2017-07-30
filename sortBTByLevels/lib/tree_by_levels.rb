@@ -4,12 +4,10 @@ require "tree_node"
 def tree_by_levels(node)
   return [] unless node
 
-  result = [node.value]
+  result = []
   height = height(node)
 
-  (1..height).each do |h|
-    result << giveLevel(node, h) unless giveLevel(node, h).is_a?(Integer)
-  end
+  (1..height).each { |h| result << giveLevel(node, h) }
 
   result.flatten.select { |el| el }
 end
