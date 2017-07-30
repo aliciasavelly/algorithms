@@ -31,4 +31,32 @@ describe ".Calculator" do
       expect(Calculator.new.evaluate("9 * 4 * 6 * 1 * 3 * 0 * 9 * 8 * 7 * 9")).to eq(0)
     end
   end
+
+  context "#multiply" do
+    it "should multiply two numbers" do
+      expect(Calculator.new.multiply(2, 3)).to eq(6)
+    end
+
+    it "should multiply two large numbers" do
+      expect(Calculator.new.multiply(223, 32)).to eq(7136)
+    end
+  end
+
+  context "#divide" do
+    it "should divide two numbers" do
+      expect(Calculator.new.divide(100, 4)).to eq(25)
+    end
+  end
+
+  context "#add" do
+    it "should add two numbers" do
+      expect(Calculator.new.add(200, 32)).to eq(232)
+    end
+  end
+
+  context "#subtract" do
+    it "should subtract two numbers" do
+      expect(Calculator.new.subtract(19, 7)).to eq(12)
+    end
+  end
 end
