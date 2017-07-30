@@ -25,4 +25,15 @@ describe "#tree_by_levels" do
 
     expect(tree_by_levels(root)).to eq([1, 8, 4, 3, 5, 7])
   end
+
+  it "should return the correct array for incredibly unbalanced trees" do
+    root = TreeNode.new(1)
+    root.left = TreeNode.new(8)
+    root.left.left = TreeNode.new(3)
+    root.left.left.left = TreeNode.new(4)
+    root.left.left.left.left = TreeNode.new(5)
+    root.left.left.left.left.left = TreeNode.new(7)
+
+    expect(tree_by_levels(root)).to eq([1, 8, 3, 4, 5, 7])
+  end
 end
