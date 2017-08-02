@@ -1,0 +1,30 @@
+[{
+  "html": {
+    "head": {
+      "title": {
+        "innerHTML": "JSON"
+      }
+    },
+    "body": {
+      "div": {
+        "innerHTML": "First Div",
+        "div": {
+          "ul": {
+            "li": {
+              "innerHTML": "First LI"
+            },
+            "li": {
+              "innerHTML": "Second LI"
+            },
+            "li": {
+              "innerHTML": "Third LI"
+            },
+            "li": {
+              "innerHTML": "Fourth LI"
+            },
+          }
+        }
+      }
+    }
+  }
+}]
