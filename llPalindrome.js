@@ -34,8 +34,28 @@ k = new ListNode("a");
 i.next = j;
 j.next = k;
 
+l = new ListNode("a");
+m = new ListNode("b");
+n = new ListNode("c");
+l.next = m;
+m.next = n;
+
 function isListPalindrome(ll) {
-  
+  let mid = findMid(ll);
+
+  let firstHead = ll;
+  let secondHead = reverseLL(mid.next);
+
+  while (secondHead) {
+    if (secondHead.value != firstHead.value) {
+      return false;
+    }
+
+    firstHead = firstHead.next;
+    secondHead = secondHead.next;
+  }
+
+  return true;
 }
 
 function findMid(ll) {
@@ -50,6 +70,25 @@ function findMid(ll) {
   return slow;
 }
 
-console.log(findMid(a).value == "b");
-console.log(findMid(e).value == "b");
-console.log(findMid(i).value == "b");
+function reverseLL(ll) {
+  let prev = null;
+  let current = ll;
+  let next;
+
+  while (current) {
+    next = current.next;
+    current.next = prev;
+    prev = current;
+    current = next;
+  }
+
+  return prev;
+}
+
+// console.log(findMid(a).value == "b");
+// console.log(findMid(e).value == "b");
+// console.log(findMid(i).value == "b");
+console.log(isListPalindrome(a) == true);
+console.log(isListPalindrome(e) == false);
+console.log(isListPalindrome(i) == true);
+console.log(isListPalindrome(l) == false);
