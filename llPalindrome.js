@@ -34,6 +34,10 @@ l.next = m;
 m.next = n;
 
 function isListPalindrome(ll) {
+  if (!ll) {
+    return false;
+  }
+  
   let mid = findMid(ll);
 
   let firstHead = ll;
