@@ -1,6 +1,7 @@
 class quickfind {
   constructor(arr) {
     this.elements = this.setUpObj(arr);
+    this.length = arr.length;
   }
 
   setUpObj(arr) {
@@ -12,14 +13,11 @@ class quickfind {
   }
 
   union(num1, num2) {
-    // look for entries ids == id first argument and set
-    // those to the id of the second argument
     let id1 = this.elements[num1];
-    let id2 = this.elements[num2];
 
     for (let key in this.elements) {
       if (this.elements[key] === id1) {
-        this.elements[key] = id2;
+        this.elements[key] = this.elements[num2];
       }
     }
   }
@@ -27,6 +25,11 @@ class quickfind {
   connected(num1, num2) {
     console.log(this.elements[num1]);
     return this.elements[num1] === this.elements[num2];
+  }
+
+  add(num) {
+    this.elements[num] = this.length;
+    this.length++;
   }
 }
 
@@ -38,8 +41,15 @@ q.union(9, 4);
 q.union(2, 1);
 console.log(q.connected(0, 7) == false);
 console.log(q.connected(8, 9) == true);
+console.log(q.elements);
 q.union(5, 0);
 q.union(7, 2);
 q.union(6, 1);
 q.union(1, 0);
 console.log(q.connected(0, 7) == true);
+console.log(q.elements);
+q.add(10);
+q.add(11);
+q.add(12);
+q.add(13);
+console.log(q.elements);
