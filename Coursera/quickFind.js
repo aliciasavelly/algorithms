@@ -9,6 +9,7 @@ class quickfind {
     for (let i = 0; i < arr.length; i++) {
       elements[arr[i]] = i;
     }
+
     return elements;
   }
 
@@ -23,7 +24,6 @@ class quickfind {
   }
 
   connected(num1, num2) {
-    console.log(this.elements[num1]);
     return this.elements[num1] === this.elements[num2];
   }
 
