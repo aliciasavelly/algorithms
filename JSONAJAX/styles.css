@@ -1,3 +1,13 @@
 .hide-me {
   display: none;
 }
+
+.title {
+  color: blue;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.question-cursor {
+  cursor: help;
+}

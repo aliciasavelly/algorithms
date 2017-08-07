@@ -52,7 +52,7 @@ function renderHTML(data) {
         htmlString += ` and ${data[i].foods.dislikes[j]}`;
       }
     }
-    
+
     htmlString += `.</p>`;
   }
 
