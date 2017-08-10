@@ -1,21 +1,17 @@
+// a pangram is a sentence with every letter of the alphabet
+// at least once
+
 function pangram(sentence) {
   let chars = sentence.split("");
   let charsSet = new Set;
 
   for (let i = 0; i < chars.length; i++) {
-    // if (charsSet.has(chars[i].toLowerCase())) {
-    //   console.log(charsSet);
-    //   console.log(chars[i]);
-    //   return "not pangram";
-    // }
     if (chars[i] !== " ") {
       charsSet.add(chars[i].toLowerCase());
     }
   }
 
   return (charsSet.size != 26 ? "not pangram" : "pangram");
-  // if (charsSet.size != 26) return "not pangram";
-  // return "pangram";
 }
 
 console.log(pangram("We promptly judged antique ivory buckles for the next prize") === "pangram");
