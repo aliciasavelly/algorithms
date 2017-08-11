@@ -9,7 +9,7 @@ class quickfind {
     for (let i = 0; i < arr.length; i++) {
       elements[arr[i]] = i;
     }
-
+    console.log(elements);
     return elements;
   }
 
