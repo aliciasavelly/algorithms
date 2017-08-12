@@ -54,3 +54,10 @@ console.log(q.elements);
 q.union(6, 5);
 q.union(9, 4);
 console.log(q.elements);
+q.union(2, 1);
+q.union(5, 0);
+q.union(7, 2);
+q.union(6, 1);
+q.union(7, 3);
+console.log(q.elements);
+//[6, 2, 6, 4, 6, 6, 6, 2, 4, 4]
