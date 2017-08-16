@@ -13,10 +13,26 @@ class LinkedList {
   isCycle() {
     let includedNodes = new Set;
     let current = this.root;
-    while (current != null) {
+    while (current) {
       if (includedNodes.has(current)) return true;
       includedNodes.add(current);
       current = current.next;
+    }
+
+    return false;
+  }
+
+  isCycle2() {
+    let slowNode = this.root;
+    let fastNode = this.root;
+
+    while (fastNode.next && fastNode.next.next) {
+      slowNode = slowNode.next;
+      fastNode = fastNode.next.next;
+
+      if (slowNode === fastNode) {
+        return true;
+      }
     }
 
     return false;
@@ -36,3 +52,4 @@ n3.next = n4;
 n4.next = n5;
 n5.next = n3;
 console.log(ll.isCycle());
+console.log(ll.isCycle2());
