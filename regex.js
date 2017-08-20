@@ -18,3 +18,8 @@ let match4 = str4.split(/\s*,\s*/);
 console.log(match4);
 // ['1', '2', '3', '4', '5']
 console.log(str4);
+
+let objRegExp = /(\w+)\s(\w+)\s(\w+)/;
+let str5 = "Alicia Marie Savelly";
+let str5Reverse = str5.replace(objRegExp, "$2, $3, $1");
+console.log(str5Reverse);
