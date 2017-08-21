@@ -25,3 +25,11 @@ let str5Reverse = str5.replace(objRegExp, "$2, $3, $1");
 console.log(str5Reverse);
 console.log(str5.search(/\d+/) === -1);
 console.log(str5.search(/\s+/) === 6);
+
+let pattern = /ruby/;
+let pattern2 = /ruby/i;
+let pattern3 = /Ruby/;
+console.log(pattern.test("Ruby is fun") === false);
+console.log(pattern2.test("Ruby is fun") === true);
+console.log(pattern2.exec("Ruby is fun and Ruby on Rails is fun too"));
+console.log(pattern.source === "ruby");
