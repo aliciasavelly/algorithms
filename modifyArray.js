@@ -11,3 +11,4 @@ function modifyArray(nums) {
 }
 
 console.log(modifyArray([1, 2, 3, 4, 5]));
+console.log(modifyArray([4, 2, 7, 4, 5]));
