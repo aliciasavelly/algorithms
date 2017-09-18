@@ -61,3 +61,10 @@ function compareJSON(json1, json2) {
         }
     }
 }
+
+let a = $.get("https://aliciasavelly.github.io/portfolio/",function(data){
+    console.log(data);
+})
+parser = new DOMParser()
+doc = parser.parseFromString(a.responseText, "text/html")
+doc.children
