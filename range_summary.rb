@@ -2,17 +2,13 @@ def range_summary(array)
   ranges = []
 
   i = 0
-  start_range = array[0]
   while i < array.length - 1
     if array[i] + 1 == array[i + 1]
-      # start_range = array[i] if start_range == nil
+      start_range = array[i]
 
-      until array[i] + 1 != array[i + 1]
-        i += 1
-      end
+      i += 1 until array[i] + 1 != array[i + 1]
 
       ranges << [start_range, array[i]]
-      start_range = array[i + 1]
     end
 
     i += 1
