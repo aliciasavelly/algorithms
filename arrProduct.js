@@ -15,14 +15,20 @@ function arrProduct(arr) {
 }
 
 function totalProduct(arr) {
-  let product = 1;
-
-  for (let i = 0; i < arr.length; i++) {
-    product *= arr[i];
-  }
-
-  return product;
+  return arr.reduce( (acc, val) => {
+    return acc * val;
+  });
 }
+
+// function totalProduct(arr) {
+//   let product = 1;
+//
+//   for (let i = 0; i < arr.length; i++) {
+//     product *= arr[i];
+//   }
+//
+//   return product;
+// }
 
 console.log(arrProduct([1, 3, 2, 6, 7, 4]));
 // [1008, 336, 504, 168, 144, 252]
