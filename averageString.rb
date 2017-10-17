@@ -24,3 +24,5 @@ def average_string(s)
 
   numbers.key(total / s_split.length)
 end
+
+p average_string("one two three three three three nine nine") == "four"
