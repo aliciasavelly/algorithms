@@ -27,3 +27,4 @@ function cutSticks(arr) {
 }
 
 console.log(cutSticks([5, 4, 4, 2, 2, 8]));
+// [6, 4, 2, 1]
