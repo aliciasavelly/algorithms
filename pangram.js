@@ -6,11 +6,10 @@ function pangram(sentence) {
   let charsSet = new Set;
 
   for (let i = 0; i < chars.length; i++) {
-    if (chars[i] !== " ") {
-      charsSet.add(chars[i].toLowerCase());
-    }
+    charsSet.add(chars[i].toLowerCase());
   }
 
+  charsSet.delete(' ');
   return (charsSet.size != 26 ? "not pangram" : "pangram");
 }
 
