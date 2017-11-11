@@ -1,19 +1,19 @@
 // given array of integers, find the two largests integers in the array
 
 function findTwoLargest(numbers) {
-    let largest = -Infinity;
-    let second = -Infinity;
+  let largest = -Infinity;
+  let second = -Infinity;
 
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] > largest) {
-            second = largest;
-            largest = numbers[i];
-        } else if (numbers[i] > second) {
-            second = numbers[i];
-        }
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > largest) {
+      second = largest;
+      largest = numbers[i];
+    } else if (numbers[i] > second) {
+      second = numbers[i];
     }
+  }
 
-    return [largest, second];
+  return [largest, second];
 }
 
 console.log(findTwoLargest([3, 2, 6, 1, 9, 11]));
